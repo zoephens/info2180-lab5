@@ -3,12 +3,13 @@ $host = 'localhost';
 $username = 'lab5_user';
 $password = 'password123';
 $dbname = 'world';
+$country = $_GET['country'];
 
 $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 $stmt = $conn->query("SELECT * FROM countries");
 
 if ($_SERVER['REQUEST_METHOD'] == "GET"){
-  
+
   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
