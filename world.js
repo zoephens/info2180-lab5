@@ -1,33 +1,53 @@
-window.onload = function(){
+//Got assistance from Gabrielle Scott
+
+window.onload=function(){
+
     var lookupBtn = document.querySelector("#lookup")
-    var httpRequest
-    var link = "http://localhost/info2180-lab5/world.php"
+    var cityBtn = document.querySelector("#city")
+   
+   //Event Listeners
+    lookupBtn.addEventListener("click", lookupFunc)
+    cityBtn.addEventListener("click", cityFunc)
 
-    var textField = document.querySelector("input") 
-    var resultBox = document.querySelector("#result")
+    
+    //Event Functions
+    function lookupFunc(e){
 
-    lookupBtn.addEventListener("click", function(e){
         e.preventDefault()
 
-        httpRequest = new XMLHttpRequest()
+        const httpRequest = new XMLHttpRequest()
+
+        textCountry = document.getElementById("country").value
 
         httpRequest.onreadystatechange = function(){
-            if (httpRequest.readyState == 4){
-                if (httpRequest.status === 200){
-                    
-                    var response = httpRequest.responseText
-
-                    resultBox.innerHTML = response
-                } else{
-                    resultBox.innerHTML = "Something went wrong :("
-                }
+            if(httpRequest.readyState == 4 && httpRequest.status === 200){
+                document.getElementById("result").innerHTML = httpRequest.responseText
             }
-
-            
         }
-        //GET REQUEST
-        httpRequest.open("GET", link + "?query=" + textField.value)
-            httpRequest.send()
-    })
-}
 
+        //Get Request
+        httpRequest.open("GET", "http://localhost/info2180-lab5/world.php?country="+ textCountry)
+        httpRequest.send()
+    }
+
+    function cityFunc(e){
+        
+        e.preventDefault()
+
+        const httpRequest = new XMLHttpRequest()
+
+        textCountry = document.getElementById("country").value
+
+
+        httpRequest.onreadystatechange=function(){
+            if(httpRequest.readyState == 4 && httpRequest.status === 200){
+                document.getElementById("result").innerHTML = httpRequest.responseText
+            }
+        }
+
+        //Get Request
+        httpRequest.open("GET", "http://localhost/info2180-lab5/world.php?country="+ textCountry + "&context=cities")
+        httpRequest.send() 
+        
+    }
+}

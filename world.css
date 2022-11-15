@@ -44,17 +44,23 @@ main{
 }
 
 #controls{
-    margin: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
     text-align: center;
+    align-items: center;
+    padding: 20px;
 }
 
 label{
     font-weight: bolder;
     font-size: 18px;
+    display: inline;
 }
 
 input{
-    width: 200px;
+    width: 500px;
     padding: 10px;
     border-radius: 30px;
     border: solid 1px #3f3d56;
@@ -62,18 +68,28 @@ input{
     -moz-transition-duration:0.7s;
     -webkit-transition-duration:0.7s;
     -o-transition-duration:0.7s;
+    display: in;
 }
 
 input:hover{
-    width: 300px;
+    width: 550px;
 }
 
 input:focus{
     width:300px;
   }
 
-button{
-    width: 80px;
+#btns{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-items: center;
+}
+
+#lookup{
+    width: 140px;
     padding: 10px;
     border-radius: 30px;
     border: none;
@@ -84,10 +100,11 @@ button{
     -moz-transition-duration:0.6s;
     -webkit-transition-duration:0.6s;
     -o-transition-duration:0.6s;
+    margin: 35px 10px;
     
 }
 
-button:hover{
+#lookup:hover{
     border: solid 1px #3f3d56;
     color: #3f3d56;
     background-color: white;
@@ -95,4 +112,59 @@ button:hover{
     font-weight: bolder; 
 }
 
+#city{
+    width: 140px;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: #85bb97;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+    -moz-transition-duration:0.6s;
+    -webkit-transition-duration:0.6s;
+    -o-transition-duration:0.6s;
+    margin: 35px 10px;
+    
+}
+
+#city:hover{
+    border: solid 1px #85bb97;
+    color: #85bb97;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bolder; 
+}
+
+
+
 /*--------------------------Results--------------------------*/
+#result{
+    padding: 35px;
+    display: flex;
+    margin: 50px;
+}
+tr{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table{
+    width: 100%;
+    border-spacing: 15px;
+}
+
+td{
+    border: none;
+    padding:5px;
+    text-align: left;
+}
+
+th{
+    background-color: #3f3d56;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
